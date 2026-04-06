@@ -9,22 +9,31 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.app</groupId>
-	<artifactId>JobApplication</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name/>
+	<artifactId>job-application-portal</artifactId>
+	<version>1.0.0</version>
+	<name>job-application-portal</name>
 	<description/>
 	<url/>
 	<licenses>
 		<license/>
 	</licenses>
 	<developers>
-		<developer/>
+		<developer>
+			<id>balaji-suggana</id>
+			<name>Balaji Suggana</name>
+			<email>sugganabalaji@gmail.com</email>
+			<roles>
+				<role>Developer</role>
+				<role>Maintainer</role>
+			</roles>
+			<timezone>+5:30</timezone>
+		</developer>
 	</developers>
 	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
+		<connection>scm:git:https://github.com/sugganabalaji/job-application-portal.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/sugganabalaji/job-application-portal.git</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/sugganabalaji/job-application-portal</url>
 	</scm>
 	<properties>
 		<java.version>17</java.version>
