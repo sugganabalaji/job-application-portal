@@ -1,23 +1,21 @@
 # Job Application Portal
 
 A Spring Boot MVC application for managing job applications.  
-Built with **Spring Boot**, **Spring MVC**, **Thymeleaf**, **Lombok**, and **Maven**.
+Built with **Spring Boot**, **Spring MVC**, **JSP**, **Lombok**, and **Maven**.
 
 ---
 
 ## 🚀 Features
-- Candidate registration and profile management
+- Candidates can check Jobs posted in portal
 - Job posting and listing
-- Application submission and tracking
-- Admin dashboard for managing jobs and applicants
 - Secure form validation and error handling
 
 ---
 
 ## 🛠️ Tech Stack
 - **Backend**: Spring Boot, Spring MVC
-- **Frontend**: Thymeleaf templates, Bootstrap
-- **ORM/DB**: JPA/Hibernate, PostgreSQL/MySQL
+- **Frontend**: JSP, Bootstrap
+- **ORM/DB**: Store in to ArrayList
 - **Utilities**: Lombok for boilerplate reduction
 - **Build Tool**: Maven
 
@@ -32,10 +30,11 @@ src/ ├── main/
      │   │   ├── service/      # Business logic 
      │   │   ├── repository/   # JPA Repositories 
      │   │   ├── model/        # Entities with Lombok 
-     │   │   └── config/       # App configuration 
-     │   └── resources/ │       
-     ├── templates/    # Thymeleaf views 
-     │       └── application.properties 
+     │   │── resources/ 
+     │   │   ├── static/       # css files 
+     │   │   └── application.yaml
+     │   └──webapp/    
+     │       └── views/        # JSP views
      └── test/                 # Unit & integration tests
 ```
 
@@ -47,14 +46,15 @@ src/ ├── main/
    git clone https://github.com/sugganabalaji/job-application-portal.git
    cd job-application-portal
 ```
-2. **Configure Database**
-   - Update ```application.properties``` with your DB credentials:
+2. **Configure prefix and suffix**
+   - Update ```application.yaml```:
    
 ```properties
-     spring.datasource.url=jdbc:postgresql://localhost:5432/jobapp
-     spring.datasource.username=postgres
-     spring.datasource.password=root
-     spring.jpa.hibernate.ddl-auto=update
+    spring:
+        mvc:
+            view:
+                prefix: /views/
+                suffix: .jsp
 ```
 
 3. **Run & Build**
@@ -75,19 +75,19 @@ Lombok is used throughout the project to reduce boilerplate code. Annotations li
 
 Example:
  ```java
-    @Entity
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-    @Builder
-    public class Candidate {
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
-        private String fullName;
-        private String email;
-        private String resumeLink;
-    }
+    @Component
+   public class JobPost {
+   
+      private int postId;
+      private String postProfile;
+      private String postDesc;
+      private Integer reqExperience;
+      private List<String> postTechStack;
+   
+   }
 ```
 
 For more information on Lombok,
@@ -110,6 +110,4 @@ This project is licensed under the MIT License.
 
 ```
 This README is structured to impress recruiters: clear tech stack, setup steps, and clean code samples.
-
-Would you like me to also draft a **short GitHub repo description** (the one‑liner that appears under the repo title) so it’s recruiter‑ready?
 ```
